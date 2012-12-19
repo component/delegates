@@ -14,9 +14,9 @@
 </style>
 
 <ul>
-  <li>One</li>
-  <li>Two</li>
-  <li>Three</li>
+  <li>One <a href="#">remove</a></li>
+  <li>Two <a href="#">remove</a></li>
+  <li>Three <a href="#">remove</a></li>
 </ul>
 
 <a href="#" onclick="view.events.unbind()">Unbind</a>
@@ -31,12 +31,18 @@
 
   function ListView(el) {
     this.events = delegates(el, this);
-    this.events.bind('click li', 'remove');
+    this.events.bind('click li a', 'remove');
+    this.events.bind('click li', 'alert');
   }
 
   ListView.prototype.remove = function(e){
-    var el = e.target;
+    var el = e.target.parentNode;
     console.log('remove %s', el.textContent);
     el.parentNode.removeChild(el);
+  };
+
+  ListView.prototype.alert = function(e){
+    var el = e.target;
+    alert(el.textContent);
   };
 </script>
