@@ -1,0 +1,16 @@
+{
+  "name": "delegates",
+  "repo": "component/delegates",
+  "description": "Higher level dom event delegation management",
+  "version": "0.0.1",
+  "keywords": ["event", "events", "subscriptions", "delegate", "delegation"],
+  "dependencies": {
+    "component/delegate": "*",
+    "component/event-manager": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}

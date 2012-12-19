@@ -1,0 +1,42 @@
+
+<style>
+  body {
+    padding: 50px;
+    font: 14px Helvetica;
+  }
+  ul li {
+    padding: 5px;
+    cursor: pointer;
+  }
+  ul li:hover {
+    background: #eee;
+  }
+</style>
+
+<ul>
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ul>
+
+<a href="#" onclick="view.events.unbind()">Unbind</a>
+
+<script src="build/build.js"></script>
+
+<script>
+  var delegates = require('delegates');
+  var el = document.querySelector('ul');
+
+  var view = new ListView(el);
+
+  function ListView(el) {
+    this.events = delegates(el, this);
+    this.events.bind('click li', 'remove');
+  }
+
+  ListView.prototype.remove = function(e){
+    var el = e.target;
+    console.log('remove %s', el.textContent);
+    el.parentNode.removeChild(el);
+  };
+</script>
