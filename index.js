@@ -1,10 +1,10 @@
-
 /**
  * Module dependencies.
  */
 
 var Manager = require('event-manager')
   , delegate = require('delegate')
+  , event = require('event')
   , unbind = Manager.prototype.unbind
   , bind = Manager.prototype.bind
 
@@ -25,11 +25,17 @@ module.exports = DelegateManager;
  */
 
 function DelegateManager(target, obj) {
-  if (!(this instanceof DelegateManager)) return new DelegateManager(target, obj);
+  if (!(this instanceof DelegateManager)) {
+    return new DelegateManager(target, obj);
+  }
   Manager.call(this, target, obj);
 
   this.onbind(function(name, fn){
-    delegate.bind(target, fn.selector, name, fn);
+    if (fn.selector === '') {
+      event.bind(targer, name, fn);
+    } else { 
+      delegate.bind(target, fn.selector, name, fn);
+    }
   });
 
   this.onunbind(function(name, fn){
