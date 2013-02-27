@@ -29,13 +29,13 @@ function DelegateManager(target, obj) {
   Manager.call(this, target, obj);
 
   this.onbind(function(name, fn){
-    delegate.bind(target, fn.selector, name, fn);
+    fn.callback = delegate.bind(target, fn.selector, name, fn);
   });
 
   this.onunbind(function(name, fn){
     // TODO: selector support here as well...
     // needs updating in delegate
-    delegate.unbind(target, name, fn);
+    delegate.unbind(target, name, fn.callback);
   });
 }
 
