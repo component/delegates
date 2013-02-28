@@ -6,7 +6,8 @@
   "keywords": ["event", "events", "subscriptions", "delegate", "delegation"],
   "dependencies": {
     "component/delegate": "*",
-    "component/event-manager": "*"
+    "component/event-manager": "*",
+    "component/inherit": "*"
   },
   "development": {},
   "license": "MIT",
