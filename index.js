@@ -4,9 +4,11 @@
  */
 
 var Manager = require('event-manager')
+  , inherit = require('inherit')
   , delegate = require('delegate')
   , unbind = Manager.prototype.unbind
   , bind = Manager.prototype.bind
+
 
 /**
  * Expose `DelegateManager`.
@@ -43,7 +45,7 @@ function DelegateManager(target, obj) {
  * Inherit from `Manager.prototype`.
  */
 
-DelegateManager.prototype.__proto__ = Manager.prototype;
+inherit(DelegateManager, Manager);
 
 /**
  * Onbind event to expose selector.
