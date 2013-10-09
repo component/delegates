@@ -2,7 +2,7 @@
   "name": "delegates",
   "repo": "component/delegates",
   "description": "Higher level dom event delegation management",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "keywords": ["event", "events", "subscriptions", "delegate", "delegation"],
   "dependencies": {
     "component/delegate": "0.2.1",
